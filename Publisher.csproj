@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NServiceBus.Newtonsoft.Json" Version="2.*" />
+    <PackageReference Include="NServiceBus.Transport.AzureServiceBus" Version="2.*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.26" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.26" />
+  </ItemGroup>
+  <ItemGroup Label="Transitive dependencies">
+    <PackageReference Include="Newtonsoft.Json" Version="13.*" />
+    <PackageReference Include="NServiceBus" Version="7.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Microsoft.Extensions.Configuration" />
+    <None Remove="Microsoft.Extensions.Configuration.Json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
